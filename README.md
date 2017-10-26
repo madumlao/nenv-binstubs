@@ -1,6 +1,6 @@
 # nenv-binstubs: A binstubs Plugin for nenv
 
-This plugin makes [nenv](http://nenv.org/) transparently
+This plugin makes [nenv](http://github.com/ryone/nenv) transparently
 aware of project-specific binaries created by [npm](http://npmjs.org/).
 
 This means that binaries in your node_modules/.bin directories are automatically added to your shims.
