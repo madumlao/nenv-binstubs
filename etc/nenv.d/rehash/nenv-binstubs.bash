@@ -22,18 +22,16 @@ no_rehash_binaries() {
 register_binstubs()
 {
   local root
-  local binpath
   local modules_binpath
   if [ "$1" ]; then
     root="$1"
   else
     root="$PWD"
   fi
-  binpath='bin'
   modules_binpath='node_modules/.bin'
   while [ -n "$root" ]; do
     if [ -f "$root/package.json" ]; then
-      for shim in $root/$binpath/* $root/$modules_binpath/*; do
+      for shim in $root/$modules_binpath/*; do
         if [ -x "$shim" ]; then
           if ! echo "${shim##*/}" | egrep -qw "$(no_rehash_binaries | tr ' ' '|')"; then
             # the shim does not overwrite one of the "standard" system binaries
