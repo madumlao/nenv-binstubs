@@ -57,20 +57,11 @@ Copyright (c) 2014 Mark Dumlao - Released under the same terms as [rbenv's MIT-L
 * [Wiki](https://github.com/madumlao/nenv-binstubs/wiki) for further information
 * [nenv](https://github.com/madumlao/nenv) for nenv itself (see thanks note below)
 
-## Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit
-* Send me a pull request. Bonus points for topic branches.
-
 ## Contributors
 
 Thanks go to:
 
 * [ianheggie](https://github.com/ianheggie) - nenv-binstubs was forked from his rbenv-binstubs plugin for rbenv!
-* [ryuone](https://github.com/ryuone) - for nenv. Note: as of this commit, ryuone's nenv hasn't yet been updated to handle plugins, so this plugin only works with the madumlao nenv fork for now.
+* [ryuone](https://github.com/ryuone) - for nenv. 
 * [sstephenson](https://github.com/sstephenson) - for rbenv
 
