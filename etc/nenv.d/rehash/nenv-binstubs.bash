@@ -50,7 +50,7 @@ register_bundles ()
 {
   # go through the list of bundles and run make_shims
   if [ -f "${NENV_ROOT}/bundles" ]; then
-    OLDIFS="${IFS-$' \t\n'}"
+    OLDIFS="${IFS:-$' \t\n'}"
     IFS=$'\n' bundles=(`cat ${NENV_ROOT}/bundles`)
     IFS="$OLDIFS"
     for bundle in "${bundles[@]}"; do
@@ -74,7 +74,7 @@ add_to_bundles ()
   new_bundles=${NENV_ROOT}/bundles.new.$$
   : > $new_bundles
   if [ -s ${NENV_ROOT}/bundles ]; then
-    OLDIFS="${IFS-$' \t\n'}"
+    OLDIFS="${IFS:-$' \t\n'}"
     IFS=$'\n' bundles=(`cat ${NENV_ROOT}/bundles`)
     IFS="$OLDIFS"
     for bundle in "${bundles[@]}"; do
