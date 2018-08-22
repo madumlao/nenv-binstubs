@@ -9,7 +9,7 @@ check_for_binstubs()
   binpath='bin'
   modules_binpath='node_modules/.bin'
   while [ -n "$root" ]; do
-    if [ -f "$root/package.json" ]; then
+    if [ -f "$root/package.json" ] || [ -f "$root/package-lock.json" ]; then
       potential_path="$root/$modules_binpath/$NENV_COMMAND"
       if [ -x "$potential_path" ]; then
         NENV_COMMAND_PATH="$potential_path"

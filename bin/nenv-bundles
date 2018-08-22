@@ -39,7 +39,7 @@ show_bundles ()
     IFS=$'\n' bundles=(`cat ${NENV_ROOT}/bundles`)
     IFS="$OLDIFS"
     for bundle in "${bundles[@]}"; do
-      if [ -f "$bundle/package.json" ]; then
+      if [ -f "$bundle/package.json" ] || [ -f "$bundle/package-lock.json" ]; then
         show_details "$bundle"
       else
         echo "package.json missing from $bundle - will be dropped at next rehash" >&2

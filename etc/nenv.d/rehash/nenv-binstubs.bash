@@ -30,7 +30,7 @@ register_binstubs()
   fi
   modules_binpath='node_modules/.bin'
   while [ -n "$root" ]; do
-    if [ -f "$root/package.json" ]; then
+    if [ -f "$root/package.json" ] || [ -f "$root/package-lock.json" ]; then
       for shim in $root/$modules_binpath/*; do
         if [ -x "$shim" ]; then
           if ! echo "${shim##*/}" | egrep -qw "$(no_rehash_binaries | tr ' ' '|')"; then
@@ -81,14 +81,14 @@ add_to_bundles ()
       if [ "X$bundle" = "X$root" ]; then
         new_bundle=false
       fi
-      if [ -f "$bundle/package.json" ]; then
+      if [ -f "$bundle/package.json" ] || [ -f "$bundle/package-lock.json" ]; then
         echo "$bundle" >> $new_bundles
       fi
     done
   fi
   if [ "$new_bundle" = "true" ]; then
     # add the given path to the list of bundles
-    if [ -f "$root/package.json" ]; then
+    if [ -f "$root/package.json" ] || [ -f "$root/package-lock.json" ]; then
       echo "$root" >> $new_bundles
     fi
   fi
