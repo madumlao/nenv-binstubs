@@ -23,6 +23,12 @@ check_for_binstubs()
     fi
     root="${root%/*}"
   done
+
+  # if shim / local version doesnt exist, default to system path
+  if ! [ -x "$NENV_COMMAND_PATH" ]; then
+    PATH="$(remove_from_path "${NENV_ROOT}/shims")"
+    NENV_COMMAND_PATH="$(command -v "$NENV_COMMAND" || true)"
+  fi
 }
 
 if [ -z "$DISABLE_BINSTUBS" ]; then
